@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Departement CRUD</title>
+</head>
+<body>
+
+<h1>Departement CRUD</h1>
+
+<!-- Display the list of departments -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="departement : ${departements}">
+        <td th:text="${departement.idDepartement}"></td>
+        <td th:text="${departement.nomDepart}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${departement.idDepartement})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${departement.idDepartement})}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Link to the form for adding a new department -->
+<a th:href="@{/add}">Add New Departement</a>
+
+</body>
+</html>

@@ -1,7 +1,5 @@
 package com.example.projet_jee.services;
 
-
-
 import com.example.projet_jee.entity.Universite;
 
 import java.util.List;
@@ -17,6 +15,7 @@ public interface IUniversiteService {
 
 
     public void assignUniversiteToDepartement(Integer universiteId, Integer departementId) ;
-    void deleteUniversite(Integer idUniversite);
 
+
+    void deleteUniversite(Integer idUniversite);
 }

@@ -1,10 +1,9 @@
 package com.example.projet_jee.controller;
 
-import com.example.projet_jee.entity.Departement;
 import com.example.projet_jee.services.IDepartementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.projet_jee.entity.Departement;
 
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class DepartementRestController {
         return d;
     }
 
-    // http://localhost:8089/Kaddem/departement/update-departement
+    // http://localhost:8089/projetjee/departement/update-departement
     @PutMapping("/update-departement")
     @ResponseBody
     public Departement updateDepartement(@RequestBody Departement departement) {
@@ -47,7 +46,7 @@ public class DepartementRestController {
 
 
 
-    // http://localhost:8089/Kaddem/departement/retrieveDepartementsByUniversite/1
+    // http://localhost:8089/projetjee/departement/retrieveDepartementsByUniversite/1
     @GetMapping("/retrieveDepartementsByUniversite/{idUniversite}")
     @ResponseBody
     public List<Departement> retrieveDepartementsByUniversite(@PathVariable("idUniversite") Integer idUniversite) {

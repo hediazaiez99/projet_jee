@@ -1,12 +1,11 @@
 package com.example.projet_jee.controller;
 
 
-import com.example.projet_jee.entity.Universite;
-import com.example.projet_jee.services.IUniversiteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.projet_jee.entity.Universite;
+import com.example.projet_jee.services.IUniversiteService;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class UniversiteRestController {
     @Autowired
     IUniversiteService universiteService;
 
-    // http://localhost:8089/projetjee/universite/retrieve-all-universites
+    // http://localhost:8089/Kaddem/universite/retrieve-all-universites
     @GetMapping("/retrieve-all-universites")
 
     @ResponseBody
@@ -27,7 +26,7 @@ public class UniversiteRestController {
         return listUniversites;
     }
 
-    // http://localhost:8089/projetjee/universite/retrieve-universite/8
+    // http://localhost:8089/Kaddem/universite/retrieve-universite/8
     @GetMapping("/retrieve-universite/{universite-id}")
 
     @ResponseBody
@@ -35,7 +34,7 @@ public class UniversiteRestController {
         return universiteService.retrieveUniversite(universiteId);
     }
 
-    // http://localhost:8089/projetjee/universite/add-universite
+    // http://localhost:8089/Kaddem/universite/add-universite
     @PostMapping("/add-universite")
 
     @ResponseBody
@@ -44,7 +43,7 @@ public class UniversiteRestController {
         return universite;
     }
 
-    // http://localhost:8089/projetjee/universite/update-universite
+    // http://localhost:8089/Kaddem/universite/update-universite
     @PutMapping("/update-universite")
 
     @ResponseBody
@@ -53,16 +52,11 @@ public class UniversiteRestController {
         return universite;
     }
 
-    // http://localhost:8089/projetjee/universite/assignUniversiteToDepartement/1/1
+    // http://localhost:8089/Kaddem/universite/assignUniversiteToDepartement/1/1
     @PutMapping("/assignUniversiteToDepartement/{universiteId}/{departementId}")
 
     @ResponseBody
     public void assignUniversiteToDepartement(@PathVariable("universiteId") Integer universiteId,@PathVariable("departementId") Integer departementId) {
         universiteService.assignUniversiteToDepartement(universiteId,departementId);
-    }
-    // http://localhost:8089/projetjee/universite/remove-Universite/1
-    @DeleteMapping("/remove-Universite/{Universite-id}")
-    public void removeOperateur(@PathVariable("Universite-id") Integer UniversiteId) {
-        universiteService.deleteUniversite(UniversiteId);
     }
 }
