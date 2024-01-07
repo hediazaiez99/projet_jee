@@ -90,9 +90,7 @@ public class ContratServiceImpl implements  IContratService{
         return ce;
     }
 
-    public 	Integer nbContratsValides(Date startDate, Date endDate){
-        return contratRepository.getnbContratsValides(startDate, endDate);
-    }
+
 
     public void retrieveAndUpdateStatusContrat(){
         log.info("debut methode retrieveAndUpdateStatusContrat");

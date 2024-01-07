@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/equipe")
 public class EquipeRestController {
     IEquipeService equipeService;
-    // http://localhost:8089/Kaddem/equipe/retrieve-all-equipes
+    // http://localhost:8089/projetjee/equipe/retrieve-all-equipes
     @GetMapping("/retrieve-all-equipes")
     @ResponseBody
     public List<Equipe> getEquipes() {
@@ -22,14 +22,14 @@ public class EquipeRestController {
     }
 
 
-    // http://localhost:8089/Kaddem/equipe/retrieve-equipe/8
+    // http://localhost:8089/projetjee/equipe/retrieve-equipe/8
     @GetMapping("/retrieve-equipe/{equipe-id}")
     @ResponseBody
     public Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
         return equipeService.retrieveEquipe(equipeId);
     }
 
-    // http://localhost:8089/Kaddem/equipe/add-equipe
+    // http://localhost:8089/projetjee/equipe/add-equipe
     /* cette méthode permet d'ajouter une équipe avec son détail*/
     @PostMapping("/add-equipe")
     @ResponseBody
@@ -38,7 +38,7 @@ public class EquipeRestController {
         return equipe;
     }
 
-    // http://localhost:8089/Kaddem/equipe/update-equipe
+    // http://localhost:8089/projetjee/equipe/update-equipe
     @PutMapping("/update-equipe")
     @ResponseBody
     public Equipe updateEtudiant(@RequestBody Equipe e) {
@@ -46,11 +46,6 @@ public class EquipeRestController {
         return equipe;
     }
 
-   // @Scheduled(cron="0 0 13 * * *")
-    @Scheduled(cron="* * 13 * * *")
-    @PutMapping("/faireEvoluerEquipes")
-    public void faireEvoluerEquipes() {
-        equipeService.evoluerEquipes() ;
-    }
+
 
 }
